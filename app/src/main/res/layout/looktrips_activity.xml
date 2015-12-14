@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/registertripsview">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Encuentre un viaje :)"
+        android:id="@+id/textView10"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Origen:"
+        android:id="@+id/textView12"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/textView10"
+        android:layout_toStartOf="@+id/textView10" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destino:"
+        android:id="@+id/textView13"
+        android:layout_below="@+id/spnOrigen"
+        android:layout_alignStart="@+id/textView12" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha:"
+        android:id="@+id/textView14"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/textView12" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Número de Pasajeros:"
+        android:id="@+id/textView15"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/editText"
+        android:layout_alignStart="@+id/textView13" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spnOrigen"
+        android:layout_alignTop="@+id/textView12"
+        android:layout_toEndOf="@+id/textView15" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:id="@+id/button"
+        android:layout_marginEnd="30dp"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_alignEnd="@+id/editText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/textView15" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_below="@+id/spnOrigen"
+        android:layout_alignStart="@+id/spnOrigen"
+        android:layout_above="@+id/editText" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="11"></GridLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="11"></GridLayout>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>
