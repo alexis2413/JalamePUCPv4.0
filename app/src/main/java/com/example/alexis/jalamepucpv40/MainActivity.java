@@ -22,6 +22,9 @@ public class MainActivity extends Activity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        //context
+        final Context context = this;
+
         //Para el Login
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etPassword = (EditText) findViewById(R.id.etPass);
@@ -40,6 +43,8 @@ public class MainActivity extends Activity {
                         boolean logInResult = LogInController.LogIn(username, password);
                         if (logInResult) {
                             Toast.makeText(getApplicationContext(), "Logueado Correctamente.", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(context, MenuActivity.class);
+                            startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), "Usuario o contraseña no correctos.", Toast.LENGTH_LONG).show();
                         }
@@ -48,8 +53,6 @@ public class MainActivity extends Activity {
 
             }
         });
-        //Contexto
-        final Context context = this;
 
         //Registrarse
         Button btnRegister = (Button) findViewById(R.id.btnRegisterView);
