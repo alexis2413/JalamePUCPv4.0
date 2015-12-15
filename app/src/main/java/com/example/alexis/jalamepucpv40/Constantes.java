@@ -12,4 +12,5 @@ public class Constantes {
     public static String Repetido = "Ya Existe";
     public static List<String> Lugares = Arrays.asList("PUCP", "Pueblo Libre", "San Juan de Lurigancho", "San Isidro",
             "La Molina", "Surco", "Magdalena", "Miraflores", "San Miguel");
+    public static String UsuarioGet = "No hay";
 }

@@ -58,10 +58,12 @@ public class RegisterActivity extends Activity {
                     telf = telf.replace(" ", "%20");
                     String respuesta = LogInController.RegisterUser(nombre, user, pass, codPucp, correo, dist, telf);
                     Toast.makeText(getApplicationContext(), respuesta, Toast.LENGTH_LONG).show();
+                    LogInController.usuario = LogInController.ObtieneUsuario(user);
+                    Intent intent = new Intent(context, MenuActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Usuario ya existente", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 

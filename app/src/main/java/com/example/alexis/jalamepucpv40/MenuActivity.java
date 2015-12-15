@@ -44,11 +44,22 @@ public class MenuActivity extends Activity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        //Para registrar los viajes
         Button btnRegisterTripView = (Button) findViewById(R.id.btnRegisterTripView);
         btnRegisterTripView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, TripActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Para buscar los viajes
+        Button btnSearchTripView = (Button) findViewById(R.id.btnSearchTripView);
+        btnSearchTripView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TripSearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -64,6 +75,7 @@ public class MenuActivity extends Activity
     }
 
     public void onSectionAttached(int number) {
+        final Context context = this;
         switch (number) {
             case 1:
                 mTitle = getString(R.string.title_section1);
@@ -72,7 +84,11 @@ public class MenuActivity extends Activity
                 mTitle = getString(R.string.title_section2);
                 break;
             case 3:
-                final Context context = this;
+                mTitle = "Mis Viajes";
+                Intent intent2 = new Intent(context, TripOverviewActivity.class);
+                startActivity(intent2);
+            case 4:
+                LogInController.usuario = 0;
                 Intent intent = new Intent(context, MainActivity.class);
                 startActivity(intent);
                 break;

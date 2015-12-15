@@ -1,5 +1,9 @@
 package com.example.alexis.jalamepucpv40;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +16,8 @@ import java.net.URL;
  * Created by samoel on 13/12/2015.
  */
 public class LogInController {
+
+    public static int usuario;
 
     public static boolean LogIn(String usuario, String password) {
         String url = Constantes.Url + "login/" + usuario + "/" + password;
@@ -116,5 +122,42 @@ public class LogInController {
             e.printStackTrace();
         }
         return repetido;
+    }
+
+    public static int ObtieneUsuario(String username) {
+        String url = Constantes.Url + "usuarios/busca/" + username;
+        HttpURLConnection con;
+        InputStream is;
+        try {
+            con = (HttpURLConnection) (new URL(url)).openConnection();
+            con.setRequestMethod("GET");
+            con.setDoInput(true);
+            con.connect();
+
+            StringBuffer sb = new StringBuffer();
+            is = con.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                sb.append(linea);
+            }
+            is.close();
+            con.disconnect();
+            if (sb.toString().compareTo(Constantes.UsuarioGet) != 0) {
+                JSONArray jsonArray = new JSONArray(sb.toString());
+                JSONObject json = jsonArray.getJSONObject(0);
+                int id = Integer.parseInt(json.getString("id"));
+                return id;
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }

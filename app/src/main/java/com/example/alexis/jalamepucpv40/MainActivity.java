@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
                         boolean logInResult = LogInController.LogIn(username, password);
                         if (logInResult) {
                             Toast.makeText(getApplicationContext(), "Logueado Correctamente.", Toast.LENGTH_LONG).show();
+                            LogInController.usuario = LogInController.ObtieneUsuario(username);
                             Intent intent = new Intent(context, MenuActivity.class);
                             startActivity(intent);
                         } else {
