@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Origen:"
         android:id="@+id/textView12"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/textView10"
         android:layout_toStartOf="@+id/textView10" />
 
@@ -44,9 +44,9 @@
         android:layout_height="wrap_content"
         android:text="Número de Pasajeros:"
         android:id="@+id/textView15"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/textView14"
-        android:layout_alignStart="@+id/textView14" />
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/editText"
+        android:layout_alignStart="@+id/textView13" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -54,15 +54,6 @@
         android:id="@+id/spnOrigen"
         android:layout_alignTop="@+id/textView12"
         android:layout_toEndOf="@+id/textView15" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registar"
-        android:id="@+id/button"
-        android:layout_below="@+id/textView15"
-        android:layout_marginTop="92dp"
-        android:layout_alignEnd="@+id/textView10" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -76,9 +67,27 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+        android:id="@+id/spnDestino"
         android:layout_below="@+id/spnOrigen"
         android:layout_alignStart="@+id/spnOrigen"
         android:layout_above="@+id/editText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/etNPasajeros"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_alignStart="@+id/editText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="registrar"
+        android:id="@+id/btnRegisterTrip"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/etNPasajeros"
+        android:layout_alignEnd="@+id/textView10" />
 
 </RelativeLayout>

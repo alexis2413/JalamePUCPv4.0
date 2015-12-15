@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.Button;
 
 public class MenuActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -37,10 +38,20 @@ public class MenuActivity extends Activity
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
+        //context
+        final Context context = this;
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+        Button btnRegisterTripView = (Button) findViewById(R.id.btnRegisterTripView);
+        btnRegisterTripView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TripActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
