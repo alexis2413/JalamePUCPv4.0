@@ -44,8 +44,7 @@
         android:layout_height="wrap_content"
         android:text="Número de Pasajeros:"
         android:id="@+id/textView15"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/editText"
+        android:layout_alignBottom="@+id/etNPasajeros"
         android:layout_alignStart="@+id/textView13" />
 
     <Spinner
@@ -60,7 +59,7 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/etFecha"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/textView15" />
 
@@ -78,16 +77,18 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/etNPasajeros"
-        android:layout_alignTop="@+id/textView15"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_below="@+id/etFecha"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="26dp"
+        android:layout_alignStart="@+id/etFecha" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="registrar"
         android:id="@+id/btnRegisterTrip"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/etNPasajeros"
-        android:layout_alignEnd="@+id/textView10" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/textView10"
+        android:layout_marginBottom="66dp" />
 
 </RelativeLayout>
