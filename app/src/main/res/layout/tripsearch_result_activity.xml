@@ -43,7 +43,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ver"
+        android:text="jalame"
         android:id="@+id/btnJalameView"
         android:layout_below="@+id/txtSeleccionado"
         android:layout_centerHorizontal="true"

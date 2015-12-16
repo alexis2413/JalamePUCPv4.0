@@ -87,7 +87,11 @@ public class MenuActivity extends Activity
                 mTitle = "Mis Viajes";
                 Intent intent2 = new Intent(context, TripOverviewActivity.class);
                 startActivity(intent2);
+                break;
             case 4:
+                mTitle = "Mis Asistencias";
+                break;
+            case 5:
                 LogInController.usuario = 0;
                 Intent intent = new Intent(context, MainActivity.class);
                 startActivity(intent);

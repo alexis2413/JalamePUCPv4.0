@@ -22,6 +22,89 @@ import java.util.List;
  */
 public class TripController {
 
+    public static List<Trip> MyTrips() {
+        int idUsuario = LogInController.usuario;
+        String url = Constantes.Url + "viajes/mis_viajes/" + idUsuario;
+        HttpURLConnection con;
+        InputStream is;
+        try {
+            con = (HttpURLConnection) (new URL(url)).openConnection();
+            con.setRequestMethod("GET");
+            con.setDoInput(true);
+            con.connect();
+
+            StringBuffer sb = new StringBuffer();
+            is = con.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                sb.append(linea);
+            }
+            is.close();
+            con.disconnect();
+
+            JSONArray jsonArray = new JSONArray(sb.toString());
+            List<Trip> resultado = new ArrayList<Trip>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+                int id = json.getInt("id");
+                int owner = json.getInt("idUsuario");
+                String _origen = json.getString("origen");
+                String _destino = json.getString("destino");
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                String fechaS = json.getString("fecha");
+                try {
+                    Date fecha = formatter.parse(fechaS);
+                    int npasj = json.getInt("numAsientos");
+                    int nocp = json.getInt("ocupados");
+                    Trip trip = new Trip(id, owner, _origen, _destino, fecha, npasj, nocp);
+                    resultado.add(trip);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+            return resultado;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void AddPassenger(int idViaje) {
+        int usuario = LogInController.usuario;
+        String url = Constantes.Url + "viajes/ingresa_pasajero/" + idViaje + "/" + usuario;
+        HttpURLConnection con;
+        InputStream is;
+        try {
+            con = (HttpURLConnection) (new URL(url)).openConnection();
+            con.setRequestMethod("GET");
+            con.setDoInput(true);
+            con.connect();
+
+            StringBuffer sb = new StringBuffer();
+            is = con.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                sb.append(linea);
+            }
+            is.close();
+            con.disconnect();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static List<Trip> SearchTrips(String origen, String destino) {
         String url = Constantes.Url + "viajes/busca/" + origen + "/" + destino;
         HttpURLConnection con;

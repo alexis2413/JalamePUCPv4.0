@@ -2,6 +2,7 @@ package com.example.alexis.jalamepucpv40;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -102,7 +104,10 @@ public class TripSearchResultActivity extends Activity {
             @Override
             public void onClick(View v) {
                 int escogido = Integer.parseInt(txtEscogido.getText().toString());
-
+                TripController.AddPassenger(escogido);
+                Toast.makeText(getApplicationContext(), "Estas a bordo", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, MenuActivity.class);
+                startActivity(intent);
             }
         });
     }
