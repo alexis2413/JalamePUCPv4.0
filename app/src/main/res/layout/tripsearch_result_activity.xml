@@ -10,7 +10,7 @@
         android:layout_height="330dp"
         android:layout_marginLeft="0dp"
         android:id="@+id/tblLayout"
-        android:background="@drawable/blanco"
+        android:background="@drawable/blancopuro"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:paddingEnd="0dp"
