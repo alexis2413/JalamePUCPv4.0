@@ -48,6 +48,7 @@ public class TripController {
             List<Trip> resultado = new ArrayList<Trip>();
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
+                int id = json.getInt("id");
                 int owner = json.getInt("idUsuario");
                 String _origen = json.getString("origen");
                 String _destino = json.getString("destino");
@@ -57,7 +58,7 @@ public class TripController {
                     Date fecha = formatter.parse(fechaS);
                     int npasj = json.getInt("numAsientos");
                     int nocp = json.getInt("ocupados");
-                    Trip trip = new Trip(owner, _origen, _destino, fecha, npasj, nocp);
+                    Trip trip = new Trip(id, owner, _origen, _destino, fecha, npasj, nocp);
                     resultado.add(trip);
                 } catch (ParseException e) {
                     e.printStackTrace();

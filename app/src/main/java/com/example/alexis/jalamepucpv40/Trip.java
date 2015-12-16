@@ -6,6 +6,7 @@ import java.util.Date;
  * Created by samoel on 15/12/2015.
  */
 public class Trip {
+    public int id;
     public int owner;
     public String origen;
     public String destino;
@@ -13,7 +14,8 @@ public class Trip {
     public int npasajeros;
     public int nocupados;
 
-    public Trip(int owner, String origen, String destino, Date fecha, int npasj, int nopc) {
+    public Trip(int id, int owner, String origen, String destino, Date fecha, int npasj, int nopc) {
+        this.id = id;
         this.owner = owner;
         this.origen = origen;
         this.destino = destino;
