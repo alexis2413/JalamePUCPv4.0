@@ -34,7 +34,9 @@ public class TripSearchActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String origen = spnQOrigen.getSelectedItem().toString();
+                origen = origen.replace(" ", "%20");
                 String destino = spnQDestino.getSelectedItem().toString();
+                destino = destino.replace(" ", "%20");
                 SearchQuery.destino = destino;
                 SearchQuery.origen = origen;
                 Intent intent = new Intent(context, TripSearchResultActivity.class);
