@@ -15,7 +15,7 @@ public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
-    private static final LatLng ORIGEN = new LatLng(TripDetail.LatiOrigen, TripDetail.LongOringen);
+    private static final LatLng ORIGEN = new LatLng(TripDetail.LatiOrigen, TripDetail.LongOrigen);
     private static final LatLng DESTINO = new LatLng(TripDetail.LatiDestino, TripDetail.LongDestino);
     @Override
     protected void onCreate(Bundle savedInstanceState) {

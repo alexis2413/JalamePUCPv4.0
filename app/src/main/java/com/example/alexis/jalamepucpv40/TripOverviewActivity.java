@@ -1,6 +1,8 @@
 package com.example.alexis.jalamepucpv40;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -20,7 +22,7 @@ public class TripOverviewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tripoverview_activity);
-
+        final Context context = this;
         List<Trip> resultQuery = TripController.MyTrips();
         TableLayout table = (TableLayout) findViewById(R.id.lyTablaMV);
         table.setStretchAllColumns(true);
@@ -70,7 +72,7 @@ public class TripOverviewActivity extends Activity {
             int npasajeros = resultQuery.get(i).npasajeros;
             int quedan = npasajeros - ocupados;
             capacidad.setText("" + npasajeros);
-            disponibles.setText("" + (npasajeros - ocupados));
+            disponibles.setText("" + quedan);
             final TableRow fila = new TableRow(this);
             fila.addView(numero);
             fila.addView(origen);
@@ -84,6 +86,19 @@ public class TripOverviewActivity extends Activity {
                 public void onClick(View v) {
                     TextView id = (TextView) fila.getChildAt(0);
                     int idViaje = Integer.parseInt(id.getText().toString());
+                    TextView sOrigen = (TextView) fila.getChildAt(1);
+                    TextView sDestino = (TextView) fila.getChildAt(2);
+                    String ssOrigen = sOrigen.getText().toString();
+                    String ssDestino = sDestino.getText().toString();
+                    int indOrigen = Constantes.Lugares.indexOf(ssOrigen);
+                    int indDestino = Constantes.Lugares.indexOf(ssDestino);
+                    TripDetail.detalleViaje = idViaje;
+                    TripDetail.LatiOrigen = Constantes.Latitud.get(indOrigen);
+                    TripDetail.LongOrigen = Constantes.Longitud.get(indOrigen);
+                    TripDetail.LatiDestino = Constantes.Latitud.get(indDestino);
+                    TripDetail.LongDestino = Constantes.Longitud.get(indDestino);
+                    Intent intent = new Intent(context, TripDetailActivity.class);
+                    startActivity(intent);
                 }
             });
         }
