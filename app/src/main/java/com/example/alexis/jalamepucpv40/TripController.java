@@ -188,4 +188,45 @@ public class TripController {
             e.printStackTrace();
         }
     }
+
+    public static List<Integer> TripPassangers(int idViaje) {
+        int idUsuario = LogInController.usuario;
+        String url = Constantes.Url + "viajes/lista_pasajeros/" + idViaje;
+        HttpURLConnection con;
+        InputStream is;
+        try {
+            con = (HttpURLConnection) (new URL(url)).openConnection();
+            con.setRequestMethod("GET");
+            con.setDoInput(true);
+            con.connect();
+
+            StringBuffer sb = new StringBuffer();
+            is = con.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                sb.append(linea);
+            }
+            is.close();
+            con.disconnect();
+
+            JSONArray jsonArray = new JSONArray(sb.toString());
+            List<Integer> resultado = new ArrayList<Integer>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+                int id = json.getInt("npasajero");
+                resultado.add(id);
+            }
+            return resultado;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

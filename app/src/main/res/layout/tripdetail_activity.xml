@@ -9,7 +9,32 @@
         android:layout_height="wrap_content"
         android:text="Ver Ruta"
         android:id="@+id/btnVerRutaView"
+        android:layout_marginTop="105dp"
+        android:layout_below="@+id/textView21"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalle del VIaje"
+        android:id="@+id/textView21"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp" />
+        android:layout_marginTop="31dp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnVerRutaView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:id="@+id/lyPasajeros"></TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtVacio"
+        android:layout_below="@+id/textView21"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
 </RelativeLayout>
